@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapitre 1 - template syntax</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Nouveau H1 avec une variable {{ title }}</h1>
+    {{ message }}<br>
+    <button @click="onIncrement(2)">Compteur: {{ count }}</button>
+  </div>
+
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          title: 'Mon super titre',
+          count: 0
+        }
+      },
+      methods: {
+        onIncrement(val) {
+          this.count += val
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
