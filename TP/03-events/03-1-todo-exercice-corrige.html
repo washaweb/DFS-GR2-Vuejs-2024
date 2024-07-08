@@ -9,10 +9,21 @@
 <body id="app">
   <main class="container py-5">
     <h1>Gestion des événements en Vue JS</h1>
+    <!-- formulaire d'ajout d'une nouvelle todo -->
     <div class="card my-3">
+      <div class="card-header"><h2 class="h4">Créer une todo</h2></div>
       <div class="card-body">
-        <!-- créer un formulaire qui permet de créer une nouvelle todo -->
-        <!-- 1 champ input + bouton créer -->
+        <div class="row align-items-end">
+          <div class="col-10">
+            <!-- ici il faut binder le formulaire sur le texte de la nouvelle todo à créer -->
+            <label for="todoText" class="form-label visually-hidden">Texte de la todo</label>
+            <input v-model="formTodo.text" type="text" class="form-control" id="todoText" required>
+          </div>
+          <div class="col-2 d-grid">
+            <!-- au click du bouton, déclencher une méthode pour injecter une nouvelle todo dans le tableau des todos -->
+            <button @click="onCreateTodo()" class="btn btn-block btn-primary">Créer</button>
+          </div>
+        </div>
       </div>
     </div>
 

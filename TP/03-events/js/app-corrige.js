@@ -4,6 +4,11 @@ import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 createApp({
   data() {
     return {
+      formTodo: {
+        id: -1, //remplacer cet id par le timestamp de la date de création
+        text: '', //binder cette valeur sur le champ de formulaire de création
+        done: false,
+      },
       todos: [
         {
           id: 1,
@@ -59,6 +64,18 @@ createApp({
       todoEdited.text = todoEdited.form
       todoEdited.form = ''
       todoEdited.edit = false
+    },
+
+    // copier le formulaire formTodo dans le tableau udes todos en prenant soin d'ajouter un id unique au passage, puis on vidange le formulaire
+    onCreateTodo() {
+
+      // console.log(this.formTodo)
+      // on crée un id unique
+      this.formTodo.id = Date.now()
+      // on pousse le formulaire dans le tableau comme nouvelle todo
+      this.todos.push( { ...this.formTodo } )
+      // réinitialise le texte du formulaire
+      this.form.todo.text = ''
     }
   }
 }).mount('#app')
