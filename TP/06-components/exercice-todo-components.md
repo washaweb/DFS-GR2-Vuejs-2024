@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2 - Data Binding</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body id="app">
+# TODOLIST Composants
+
+Exercice : Reprendre le code du TP de todolist réalisé hier (en script module), et le transformer pour être utilisé dans une application crée avec vue-cli (npm create).
+
+- Reprendre le code existant
+- Transformer les différentes parties de l'application en composants :
+  + un composant pour le formulaire d'ajout d'une nouvelle todo (eh haut de page)
+  + un composant par ligne de todo dans la liste (une li)
+
+Pour rappel, voici l'HTML du template, le code javascript de l'app est à intégrer dans le controlleur de l'application App.vue
+
+```html
   <main class="container py-5">
     <h1>Gestion des événements en Vue JS</h1>
     <!-- formulaire d'ajout d'une nouvelle todo -->
@@ -71,20 +74,5 @@
       {{todos}}
     </pre>
     <!-- fin du composant du debug -->
-     
-    <!-- 
-    Exercice TODO:
-    Réaliser une Todo liste en Vue JS, ajouter un tableau de 5 todos dans les données du contrôleur, chaque todo aura la structure suivante :
-    {
-      id: 1,
-      text: 'Titre de la todo',
-      done: false,
-    },
-    afficher les todos dans la vue à l'aide d'une boucle dans le ul#todos située ci-dessus dans le code
-``
- -->
   </main>
-  
-  <script type="module" src="js/app-corrige.js"></script>
-</body>
-</html>
+```
