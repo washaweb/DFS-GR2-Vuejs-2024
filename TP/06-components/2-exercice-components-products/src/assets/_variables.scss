@@ -1,0 +1,40 @@
+// // Variables
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+// scss-docs-start theme-color-variables
+$primary: #0f526d;
+$secondary: #cccccc;
+$success: #2a9d8f;
+$info: #90e0ef;
+$warning: #e9c46a;
+$danger: #e76f51;
+$light: #f8f9fa;
+$dark: #264653;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark
+);
+// Typography
+
+// Font, line-height, and color for body text, headings, and more.
+
+// scss-docs-start font-variables
+$font-family-sans-serif: 'Work Sans', sans-serif;
+$spacer: 2rem;
