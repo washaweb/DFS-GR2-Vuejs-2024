@@ -21,6 +21,7 @@ const router = createRouter({
     // la route plus précise doit être placée en dernier dans la liste
     {
       path: '/blog/:slug',
+      props: true,
       name: 'blogDetail',
       component: () => import('../views/BlogDetailView.vue')
     },
