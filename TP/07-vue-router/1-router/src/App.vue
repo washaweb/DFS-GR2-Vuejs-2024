@@ -19,7 +19,9 @@
   </nav>
 
   <div id="page-content" class="container my-3">
-    <RouterView />
+    <Transition>
+      <RouterView />
+    </Transition>
   </div>
 </template>
 
