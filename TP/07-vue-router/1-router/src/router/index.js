@@ -5,8 +5,8 @@ import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  linkActiveClass: 'router-link-active',
-  linkExactActiveClass: 'router-link-exact-active',
+  linkActiveClass: 'active text-primary',
+  linkExactActiveClass: 'active text-primary fw-bold',
   routes: [
     {
       path: '/',
