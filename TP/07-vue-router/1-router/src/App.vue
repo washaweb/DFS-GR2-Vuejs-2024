@@ -2,7 +2,17 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <button
+        class="navbar-toggler"
+        type="button"
+        @click="navBarOpen = !navBarOpen"
+        aria-controls="navbarNav"
+        :aria-expanded="navBarOpen"
+        aria-label="Afficher / masquer la navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" :class="{ show: navBarOpen }" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
             <RouterLink class="nav-link" aria-current="page" to="/">Home</RouterLink>
@@ -31,6 +41,11 @@ export default {
   components: {
     RouterLink,
     RouterView
+  },
+  data() {
+    return {
+      navBarOpen: false
+    }
   }
 }
 </script>
