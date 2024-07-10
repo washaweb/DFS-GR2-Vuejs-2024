@@ -23,19 +23,31 @@ const router = createRouter({
       path: '/blog/:slug',
       props: true,
       name: 'blogDetail',
-      component: () => import('../views/BlogDetailView.vue')
+      component: () => import('@/views/BlogDetailView.vue')
     },
     {
       path: '/products',
       name: 'products',
-      component: () => import('../views/ProductsView.vue')
+      component: () => import('@/views/Products/ProductsView.vue')
     },
     // la route plus précise doit être placée en dernier dans la liste
     {
       path: '/product/:slug',
       props: true,
       name: 'productDetail',
-      component: () => import('../views/ProductDetailView.vue')
+      component: () => import('@/views/Products/ProductView.vue'),
+      children: [
+        {
+          path: 'details',
+          name: 'productDetails',
+          component: () => import('@/views/Products/ProductDetailView.vue')
+        },
+        {
+          path: 'comments',
+          name: 'productComments',
+          component: () => import('@/views/Products/ProductCommentsView.vue')
+        }
+      ]
     },
     {
       path: '/about',

@@ -32,9 +32,11 @@
   </nav>
 
   <div id="page-content" class="container my-3">
-    <Transition>
-      <RouterView />
-    </Transition>
+    <RouterView v-slot="{ Component, route }">
+      <transition name="fade">
+        <component :is="Component" :key="route.path" />
+      </transition>
+    </RouterView>
   </div>
 </template>
 

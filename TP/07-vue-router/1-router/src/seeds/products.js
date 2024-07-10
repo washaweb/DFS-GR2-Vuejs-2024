@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 1,
-    image: 'https://picsum.photos/id/31/200/300',
+    image: 'https://picsum.photos/id/31/600/380',
     title: 'Mon super poster',
     slug: 'super-poster',
     description: 'Superbe image à vendre',
@@ -23,7 +23,7 @@ export const products = [
   },
   {
     id: 2,
-    image: 'https://picsum.photos/id/32/200/300',
+    image: 'https://picsum.photos/id/32/600/380',
     title: 'Paysage de montagne',
     slug: 'paysage-montagne',
     description: 'Une vue magnifique sur les montagnes enneigées',
@@ -32,7 +32,7 @@ export const products = [
   },
   {
     id: 3,
-    image: 'https://picsum.photos/id/33/200/300',
+    image: 'https://picsum.photos/id/33/600/380',
     title: 'Coucher de soleil sur la mer',
     slug: 'coucher-soleil-mer',
     description: 'Un superbe cliché d’un coucher de soleil sur la mer',
@@ -48,7 +48,7 @@ export const products = [
   },
   {
     id: 4,
-    image: 'https://picsum.photos/id/34/200/300',
+    image: 'https://picsum.photos/id/34/600/380',
     title: 'Champ de lavande',
     slug: 'champ-lavande',
     description: 'Une vue apaisante sur un champ de lavande en fleurs',
@@ -57,7 +57,7 @@ export const products = [
   },
   {
     id: 5,
-    image: 'https://picsum.photos/id/35/200/300',
+    image: 'https://picsum.photos/id/35/600/380',
     title: 'Ville de nuit',
     slug: 'ville-nuit',
     description: 'Une vue époustouflante sur une ville illuminée la nuit',
