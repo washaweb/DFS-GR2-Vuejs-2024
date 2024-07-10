@@ -23,6 +23,9 @@
           <li class="nav-item">
             <RouterLink class="nav-link" aria-current="page" to="/blog">Blog</RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" aria-current="page" to="/products">Catalogue</RouterLink>
+          </li>
         </ul>
       </div>
     </div>

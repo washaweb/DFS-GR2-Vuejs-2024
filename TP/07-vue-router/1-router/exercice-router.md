@@ -6,7 +6,7 @@
 {
   id: 1,
   image: 'https://picsum.photos/id/31/200/300',
-  titre: 'Mon super poster',
+  title: 'Mon super poster',
   description: 'Superbe image à vendre',
   comments: [
     {
@@ -22,7 +22,7 @@
       note: 5,
     }
   ],
-  prix: '19.99',
+  price: '19.99',
 }
 ```
 

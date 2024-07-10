@@ -22,5 +22,13 @@ export const posts = [
     content: 'Voici le contenu de mon troisième article',
     img: 'https://picsum.photos/id/845/400/180',
     date: '2024-01-05'
+  },
+  {
+    id: 4,
+    title: 'Mon quatrième article protégé',
+    slug: 'protected-quatrieme-article',
+    content: 'Voici le contenu de mon quatrième article',
+    img: 'https://picsum.photos/id/31/400/180',
+    date: '2024-01-01'
   }
 ]
