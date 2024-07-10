@@ -28,12 +28,7 @@
       <!-- fin du premier composant -->
     </div>
 
-    <!-- exercice créer une TODO liste -->
     <ul id="todos" class="list-group">
-      <!-- structure référence à créer 
-      <li class="list-group-item">[case à cocher readonly] Titre de la todo (+classe barrer si achevée: "text-decoration-line-through") + bouton modifier + bouton supprimer</li> 
-      -->
-
       <!-- un composant par ligne de todo (<li>) -->
       <li
         v-for="todo in todos"
@@ -74,18 +69,20 @@
     </ul>
 
     <!-- un composant pour l'affichage du debug -->
-    <p class="mt-5">
-      <input class="form-check-input" type="checkbox" role="switch" v-model="debug" /> Debug
-    </p>
-    <pre v-if="debug">
-      {{ todos }}
-    </pre>
+    <Debug :datas="todos" name="Debug Todos" />
+
+    <Debug :datas="formTodo" name="Debug formTodo" />
     <!-- fin du composant du debug -->
   </main>
 </template>
 
 <script>
+import Debug from '@/components/Debug.vue'
+
 export default {
+  components: {
+    Debug
+  },
   data() {
     return {
       formTodo: {
@@ -120,8 +117,7 @@ export default {
           text: 'Se détendre',
           done: false
         }
-      ],
-      debug: false
+      ]
     }
   },
   methods: {
