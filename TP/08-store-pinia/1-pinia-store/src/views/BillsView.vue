@@ -32,8 +32,9 @@
         @delete="deleteBill($event.id)"
       />
     </TableList>
+
+    <AppDebug :datas="bills" />
   </div>
-  <AppDebug :datas="bills" />
 </template>
 
 <script>
