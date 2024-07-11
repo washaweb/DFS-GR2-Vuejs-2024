@@ -6,7 +6,7 @@
         <h1 class="h3"><i class="fa-solid fa-angle-down me-2" />Liste des factures</h1>
       </div>
       <div class="col text-end">
-        <button @click="onCreateBill()" class="btn btn-outline-primary">
+        <button @click="$router.push({ name: 'create-bill' })" class="btn btn-outline-primary">
           <i class="fa-solid fa-plus-circle me-2" />
           Ajouter une facture
         </button>
@@ -28,8 +28,8 @@
         v-for="bill in bills"
         :key="bill.id"
         :bill="bill"
-        @edit="onEditBill($event)"
-        @delete="onDeleteBill($event)"
+        @edit="$router.push({ name: 'edit-bill', params: { id: $event.id } })"
+        @delete="deleteBill($event.id)"
       />
     </TableList>
   </div>
@@ -39,40 +39,22 @@
 <script>
 import BillTableRow from '@/components/tables/BillTableRow.vue'
 import TableList from '@/components/tables/TableList.vue'
-import { bills } from '@/seeds/bills'
+import { useBillStore } from '@/stores/bill'
+import { mapActions, mapState } from 'pinia'
 export default {
   components: {
     TableList,
     BillTableRow
   },
-  data() {
-    return {
-      bills
-    }
+  computed: {
+    ...mapState(useBillStore, {
+      bills: 'items'
+    })
   },
   methods: {
-    onEditBill(bill) {
-      console.log('edit bill with id: ', bill.id)
-      // je change de page programmatiquement avec le $router
-      this.$router.push({
-        name: 'edit-bill',
-        params: {
-          id: bill.id
-        }
-      })
-      // autre syntaxe en utilisant le path (dynamique)
-      // this.$router.push({ path: `/bill/${bill.id}`  })
-    },
-    onDeleteBill(bill) {
-      console.log('onDeleteBill', bill.id)
-      // on recherche l'index de la facture à supprimer, et on retourne un nouveau tableau de bills sans celle-ci
-      this.bills = this.bills.filter((b) => b.id !== bill.id)
-    },
-    onCreateBill() {
-      this.$router.push({
-        name: 'create-bill'
-      })
-    }
+    ...mapActions(useBillStore, {
+      deleteBill: 'deleteItem'
+    })
   }
 }
 </script>
