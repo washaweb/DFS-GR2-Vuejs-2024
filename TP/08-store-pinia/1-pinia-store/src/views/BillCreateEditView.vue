@@ -340,7 +340,7 @@ export default {
 
     onAddPrestation(index) {
       // ajout d'une prestation sous l'élément courant dans le tableau
-      this.bill.prestations.splice(index, 0, { ...billPrestationInterface })
+      this.bill.prestations.splice(index + 1, 0, { ...billPrestationInterface })
     },
 
     onRemovePrestation(index) {
