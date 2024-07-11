@@ -17,9 +17,14 @@ const router = createRouter({
       component: () => import('../views/BillsView.vue')
     },
     {
+      path: '/bill/',
+      name: 'create-bill',
+      redirect: '/bill/new'
+    },
+    {
       path: '/bill/:id',
       props: true,
-      name: 'bill',
+      name: 'edit-bill',
       component: () => import('../views/BillCreateEditView.vue')
     },
     {

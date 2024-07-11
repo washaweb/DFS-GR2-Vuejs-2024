@@ -1,8 +1,9 @@
 <template>
   <div class="bill">
-    <h1 class="h3">Création / édition d'une facture</h1>
+    <h1 class="h3">{{ isNewBill ? 'Créer' : 'Éditer' }} une facture</h1>
     <pre>
-      id: {{ id }}
+      id: {{ id }} 
+      {{ isNewBill }}
     </pre>
   </div>
 </template>
@@ -12,7 +13,12 @@ export default {
   props: {
     id: {
       type: String,
-      default: '-1'
+      default: 'new'
+    }
+  },
+  computed: {
+    isNewBill() {
+      return this.id === 'new'
     }
   }
 }
