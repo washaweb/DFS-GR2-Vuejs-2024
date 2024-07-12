@@ -10,7 +10,7 @@
 
 > Votre exercice consite à réaliser les vues manquantes de l'application réalisée en cours, telle que décrites sur les captures d'écrans jointes et la description détaillée qui suit.
 
-En partant du dernier état du dépot du projet achevé ensemble (dossier `TP/10-ajout-du-backend/`), Vous devrez compléter l'application en ajoutant **la gestion des clients** dans l'application.
+En partant du dernier état du dépot du projet achevé ensemble (dossier `TP/09-final-project/`), Vous devrez compléter l'application en ajoutant **la gestion des clients** dans l'application.
 Vous devrez pour cela respecter l'architecture du projet déjà mise en place (utilisation du store, utilisation des routes avec vue-router, architecture de l'api avec nodejs...).
 
 ## UX des écrans à réaliser
