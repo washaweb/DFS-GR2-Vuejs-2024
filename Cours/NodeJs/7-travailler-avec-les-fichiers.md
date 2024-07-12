@@ -1,6 +1,6 @@
-Travailler avec le système de fichiers
+# Travailler avec le système de fichiers
 
-# Statistiques du fichier
+## Statistiques du fichier
 
 Chaque fichier est livré avec un ensemble de détails que nous pouvons inspecter à l'aide de Node.js.
 
@@ -122,8 +122,11 @@ Le moyen le plus simple de lire un fichier dans Node.js est d'utiliser la métho
       console.error(err)
       return
     }
+    // ce console log ne sera lancé qu'au moment ou la fonction est éxécutée, çad à la fin de la lecture du fichier chargé
     console.log(data)
   })
+  // ici le console log est immédiatement lancé après la fonction, c'est une fonction non bloquante
+  console.log('console log immédiat')
 ```
 
 Vous pouvez également utiliser la version synchrone `fs.readFileSync()` : 
@@ -132,6 +135,7 @@ Vous pouvez également utiliser la version synchrone `fs.readFileSync()` :
   const fs = require('fs')
 
   try {
+    // ici, readFileSync est une fonction bloquante, le reste du code sera mis en attente jusqu'à ce que le fichier ait été lu
     const data = fs.readFileSync('/Users/joe/test.txt', 'utf8')
     console.log(data)
   } catch (err) {
