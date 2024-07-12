@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { v4 as uuid } from 'uuid'
 // on import les modules pour résoudre les chemins : path et url
 import * as path from 'path'
 import { fileURLToPath } from 'url'
@@ -59,15 +60,67 @@ const getItem = (req, res) => {
 }
 
 const patchItem = (req, res) => {
-  res.send(`Enregistrement de la Facture N° ${ req.params.id }`)
+  try {
+    const data = fs.readFileSync(path.resolve(__dirname, '../db/bills.json'))
+    // on converti le json en données JavaScript
+    const items = JSON.parse(data)
+    let index = items.findIndex(item => item.id == req.params.id)
+    
+    // mettre à jour les données de l'item avec les données envoyées dans le body de la requête
+    items[index] = {
+      ...items[index],
+      ...req.body,
+    }
+    fs.writeFileSync(path.resolve(__dirname, '../db/bills.json'), JSON.stringify(items) )
+    res.json(items[index])
+  } catch (error) {
+    // en cas d'erreur de lecture du fichier json... on renvoie une erreur serveur
+    res.sendStatus(500)
+    throw error
+  }
 }
 
 const postItem = (req, res) => {
-  res.send(`Création d'une nouvelle Facture`)
+  try {
+    const data = fs.readFileSync(path.resolve(__dirname, '../db/bills.json'))
+    // on converti le json en données JavaScript
+    const items = JSON.parse(data)
+    
+    // on verifie les données envoyées..
+    const newBill = { ...req.body, id: uuid() }
+
+    //puis on insère la donnée dans le tableau des bills
+    items.push(newBill)
+    fs.writeFileSync(path.resolve(__dirname, '../db/bills.json'), JSON.stringify(items) )
+    res.json(newBill)
+  } catch (error) {
+    // en cas d'erreur de lecture du fichier json... on renvoie une erreur serveur
+    res.sendStatus(500)
+    throw error
+  }
 }
 
 const deleteItem = (req, res) => {
-  res.send(`Suppression de la Facture N° ${ req.params.id }`)
+  try {
+    const data = fs.readFileSync(path.resolve(__dirname, '../db/bills.json'))
+    // on converti le json en données JavaScript
+    let items = JSON.parse(data)
+    // on recherche l'item avec l'id passé en paramètre
+    items = items.filter(item => item.id != req.params.id)
+    
+    // on écrit le nouveau tableau de données
+    fs.writeFileSync(path.resolve(__dirname, '../db/bills.json'), JSON.stringify(items))
+    // 200 code http : OK
+    // 201 code http : CREATED
+    // 202 code http : ACCEPTED
+    // 203 code http : NON-AUTHORITATIVE INFORMATION
+    // 204 code http : NO CONTENT
+    res.sendStatus(200)
+  } catch (error) {
+    // en cas d'erreur de lecture du fichier json... on renvoie une erreur serveur
+    res.sendStatus(500)
+    throw error
+  }
 }
 
 export default {

@@ -34,12 +34,12 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-07-12T07:36:33.570Z",
-            "modified": "2024-07-12T07:37:19.632Z",
+            "modified": "2024-07-12T09:22:39.298Z",
             "headers": [],
             "params": [
                 {
                     "name": "id",
-                    "value": "123",
+                    "value": "2",
                     "isPath": true
                 }
             ]
@@ -53,15 +53,20 @@
             "method": "PATCH",
             "sortNum": 30000,
             "created": "2024-07-12T07:37:30.371Z",
-            "modified": "2024-07-12T07:37:46.773Z",
+            "modified": "2024-07-12T09:07:55.177Z",
             "headers": [],
             "params": [
                 {
                     "name": "id",
-                    "value": "123",
+                    "value": "2",
                     "isPath": true
                 }
-            ]
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"billnum\": 123,\n  \"description\": \"test patch\"\n}",
+                "form": []
+            }
         },
         {
             "_id": "7ce6d699-f0fd-4495-9b06-58eb30989d2a",
@@ -72,11 +77,11 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-07-12T07:37:33.260Z",
-            "modified": "2024-07-12T07:38:30.025Z",
+            "modified": "2024-07-12T09:07:29.575Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\": \"-1\",\n  \"name\": \"toto\"\n}",
+                "raw": "{\n    \"id\": -1,\n    \"billnum\": 1234567,\n    \"description\": \"Prestation de formation POST\",\n    \"date\": \"2023-03-15\",\n    \"client\": {\n      \"idclient\": 2,\n      \"firstName\": \"Harry\",\n      \"lastName\": \"Potter\",\n      \"companyName\": \"Poudlard & Co.\"\n    },\n    \"prestations\": [\n      {\n        \"id\": 127278,\n        \"description\": \"Apprentissage du maniement de la bagette\",\n        \"qty\": 1,\n        \"price\": 450\n      },\n      {\n        \"id\": 12789,\n        \"description\": \"Permis de balais\",\n        \"qty\": 2,\n        \"price\": 450\n      },\n      {\n        \"id\": 127380,\n        \"description\": \"Leçon de sort d’abondance\",\n        \"qty\": 2,\n        \"price\": 450\n      }\n    ],\n    \"discount\": 0,\n    \"paid\": 0,\n    \"totalHT\": 2250,\n    \"tva\": 20,\n    \"totalTTC\": 2700\n  }",
                 "form": []
             }
         },
@@ -89,12 +94,12 @@
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-07-12T07:37:35.853Z",
-            "modified": "2024-07-12T07:39:17.716Z",
+            "modified": "2024-07-12T09:04:56.168Z",
             "headers": [],
             "params": [
                 {
                     "name": "id",
-                    "value": "123",
+                    "value": "2",
                     "isPath": true
                 }
             ]
