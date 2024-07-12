@@ -1,5 +1,4 @@
 import { billInterface } from '@/interfaces/bill'
-import { bills } from '@/seeds/bills'
 import { defineStore } from 'pinia'
 
 // si je veux interragir avec un autre store, il suffit de l'importer
@@ -7,16 +6,24 @@ import { useCounterStore } from './counter'
 
 export const useBillStore = defineStore('bill', {
   state: () => ({
-    items: bills, //la liste des factures utilisées dans BillsView
+    items: null, //la liste des factures utilisées dans BillsView
     item: null, //formulaire d'édition utilisé dans CreateEditBillView
     loading: false // un simple boolean pour indiquer le chargement des données
   }),
   getters: {},
   actions: {
-    // plus tard, on chargera la liste des facture depuis une base de donnée
-    // getList() {
-    //   return this.bills
-    // }
+    // on charge la liste des factures depuis la route d'api GET http://127.0.0.1/bills
+    async getItems() {
+      this.loading = true
+      try {
+        const response = await this.$http.get('/bills')
+        this.items = response.data
+        this.loading = false
+      } catch (error) {
+        console.error(error)
+        this.loading = false
+      }
+    },
 
     // récupère la facture correspondant à l'id dans le store des bills et enregistre le résultat dans le store de la facture bill
     setItem(id) {

@@ -14,7 +14,7 @@
     </div>
 
     <!-- tableau des factures -->
-    <TableList>
+    <TableList v-if="!loading && bills">
       <!-- exemple pour personnaliser les th du tableau TableList : -->
       <!-- <template #thead>
         <th>test</th>
@@ -33,6 +33,8 @@
       />
     </TableList>
 
+    <div v-else>Loading...</div>
+
     <AppDebug :datas="bills" />
   </div>
 </template>
@@ -49,12 +51,17 @@ export default {
   },
   computed: {
     ...mapState(useBillStore, {
-      bills: 'items'
+      bills: 'items',
+      loading: 'loading'
     })
+  },
+  async mounted() {
+    await this.getBills()
   },
   methods: {
     ...mapActions(useBillStore, {
-      deleteBill: 'deleteItem'
+      deleteBill: 'deleteItem',
+      getBills: 'getItems'
     })
   }
 }
