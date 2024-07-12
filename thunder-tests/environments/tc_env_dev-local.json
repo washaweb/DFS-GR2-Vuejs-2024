@@ -1,0 +1,14 @@
+{
+    "_id": "670552f3-241f-439b-9123-3713be5e86a1",
+    "name": "DevLocal",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2024-07-12T07:30:30.982Z",
+    "modified": "2024-07-12T07:30:30.982Z",
+    "data": [
+        {
+            "name": "url",
+            "value": "http://127.0.0.1:3000"
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "_id": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+    "colName": "SmartBills",
+    "created": "2024-07-12T07:32:20.652Z",
+    "sortNum": 10000,
+    "folders": [
+        {
+            "_id": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "bills",
+            "containerId": "",
+            "created": "2024-07-12T07:32:54.540Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0c1b5e05-e152-4d0e-8d63-d1fe6f4a3321",
+            "colId": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+            "containerId": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "/bills",
+            "url": "{{url}}/bills",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-12T07:33:15.897Z",
+            "modified": "2024-07-12T07:33:41.203Z",
+            "headers": []
+        },
+        {
+            "_id": "a10d4aaf-65c7-4a31-912d-70271444e0b0",
+            "colId": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+            "containerId": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "bills/:id",
+            "url": "{{url}}/bills/{id}",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-12T07:36:33.570Z",
+            "modified": "2024-07-12T07:37:19.632Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "123",
+                    "isPath": true
+                }
+            ]
+        },
+        {
+            "_id": "9b3e5858-cfcf-4122-b24a-320de78c10d2",
+            "colId": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+            "containerId": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "bills/:id",
+            "url": "{{url}}/bills/{id}",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2024-07-12T07:37:30.371Z",
+            "modified": "2024-07-12T07:37:46.773Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "123",
+                    "isPath": true
+                }
+            ]
+        },
+        {
+            "_id": "7ce6d699-f0fd-4495-9b06-58eb30989d2a",
+            "colId": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+            "containerId": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "bills",
+            "url": "{{url}}/bills/",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-07-12T07:37:33.260Z",
+            "modified": "2024-07-12T07:38:30.025Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"-1\",\n  \"name\": \"toto\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "21edcffc-46c0-4d02-ab97-546629ac7d64",
+            "colId": "6f2a47b3-5fb3-4602-a264-1e6d0ca82fe0",
+            "containerId": "6794b082-7083-448e-85d9-276180939bd0",
+            "name": "bills/:id",
+            "url": "{{url}}/bills/{id}",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-07-12T07:37:35.853Z",
+            "modified": "2024-07-12T07:39:17.716Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "123",
+                    "isPath": true
+                }
+            ]
+        }
+    ]
+}
