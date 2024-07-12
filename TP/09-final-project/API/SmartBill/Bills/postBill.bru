@@ -1,0 +1,51 @@
+meta {
+  name: postBill
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/bills
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": -1,
+    "billnum": 1234567,
+    "description": "Prestation de formation POST",
+    "date": "2023-03-15",
+    "client": {
+      "idclient": 2,
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "companyName": "Poudlard & Co."
+    },
+    "prestations": [
+      {
+        "id": 127278,
+        "description": "Apprentissage du maniement de la bagette",
+        "qty": 1,
+        "price": 450
+      },
+      {
+        "id": 12789,
+        "description": "Permis de balais",
+        "qty": 2,
+        "price": 450
+      },
+      {
+        "id": 127380,
+        "description": "Leçon de sort d’abondance",
+        "qty": 2,
+        "price": 450
+      }
+    ],
+    "discount": 0,
+    "paid": 0,
+    "totalHT": 2250,
+    "tva": 20,
+    "totalTTC": 2700
+  }
+}

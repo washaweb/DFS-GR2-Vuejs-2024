@@ -1,0 +1,22 @@
+meta {
+  name: patchBill
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/bills/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 3
+}
+
+body:json {
+  {
+    "billnum": 123,
+    "description": "test patch"
+  }
+}
