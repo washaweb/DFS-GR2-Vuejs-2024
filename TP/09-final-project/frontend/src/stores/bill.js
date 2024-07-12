@@ -59,6 +59,9 @@ export const useBillStore = defineStore('bill', {
       try {
         const response = await this.$http.patch('/bills/' + form.id, form)
         console.log(response.data)
+        // raffraichir la liste des bills
+        await this.getItems()
+
         this.loading = false
       } catch (error) {
         console.error(error)
@@ -71,6 +74,8 @@ export const useBillStore = defineStore('bill', {
       try {
         const response = await this.$http.post('/bills', form)
         console.log(response.data)
+        // raffraichir la liste des bills
+        await this.getItems()
         // this.item = { ...response.data }
         this.loading = false
       } catch (error) {
@@ -84,6 +89,8 @@ export const useBillStore = defineStore('bill', {
       this.loading = true
       try {
         const response = await this.$http.delete('/bills/' + id)
+        // raffraichir la liste des bills
+        await this.getItems()
         console.log(response.data)
         this.loading = false
       } catch (error) {
