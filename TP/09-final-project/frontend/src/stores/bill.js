@@ -2,7 +2,6 @@ import { billInterface } from '@/interfaces/bill'
 import { defineStore } from 'pinia'
 
 // si je veux interragir avec un autre store, il suffit de l'importer
-import { useCounterStore } from './counter'
 
 export const useBillStore = defineStore('bill', {
   state: () => ({
@@ -26,14 +25,13 @@ export const useBillStore = defineStore('bill', {
     },
 
     // récupère la facture correspondant à l'id dans le store des bills et enregistre le résultat dans le store de la facture bill
-    setItem(id) {
-      this.loading = true
+    async setItem(id) {
       // exemple d'intégration d'un autre store dans une fonction :
-      const counterStore = useCounterStore()
+      // const counterStore = useCounterStore()
 
       // on peut ensuite faire référence aux fonctions, state, et getters de ce store :
-      counterStore.increment()
-      console.log('counter incrémenté', counterStore.count)
+      // counterStore.increment()
+      // console.log('counter incrémenté', counterStore.count)
 
       // ici je fais la différence entre la création d'une nouvelle facture
       // et l'édition d'une facture existante
@@ -42,40 +40,57 @@ export const useBillStore = defineStore('bill', {
         this.item = { ...billInterface }
       } else {
         // sinon, j'utilise les données de la facture existante dans la liste des factures
-        this.item = this.items.find((item) => item.id == id)
+        this.loading = true
+        try {
+          const response = await this.$http.get('/bills/' + id)
+          this.item = response.data
+          this.loading = false
+        } catch (error) {
+          console.error(error)
+          this.loading = false
+        }
       }
-
-      this.loading = false
     },
 
     // mise à jour d'une facture
-    updateItem(form) {
+    async updateItem(form) {
       this.loading = true
-      // ici on recherche l'index de la facture à modifier dans la liste des factures
-      const index = this.items.findIndex((item) => item.id == form.id)
-      // on remplace la facture à modifier par la nouvelle facture qui est passée en paramètre de la fonction
-      console.log(this.items[index], form)
-      this.items[index] = { ...form }
-      // puis on vidange le formulaire d'édition
-      // this.item = null
-      this.loading = false
+      try {
+        const response = await this.$http.patch('/bills/' + form.id, form)
+        console.log(response.data)
+        this.loading = false
+      } catch (error) {
+        console.error(error)
+        this.loading = false
+      }
     },
     // création d'une nouvelle facture
-    createItem(form) {
-      // ici, j'envoie simplement le formulaire dans le tableau des factures pour créer une nouvelle facture
-      this.items.push(form)
-      // je vidange le formulaire d'édition
-      // this.item = null
+    async createItem(form) {
+      this.loading = true
+      try {
+        const response = await this.$http.post('/bills', form)
+        console.log(response.data)
+        // this.item = { ...response.data }
+        this.loading = false
+      } catch (error) {
+        console.error(error)
+        this.loading = false
+      }
     },
 
     // suppression d'une facture
-    deleteItem(id) {
+    async deleteItem(id) {
       this.loading = true
-      // filtre le tableau en enlevant la facture qui a l'id recherché
-      this.items = this.items.filter((item) => item.id != id)
-      // vidange du formulaire d'édition
-      // this.item = null
-      this.loading = false
+      try {
+        const response = await this.$http.delete('/bills/' + id)
+        // ici on raffraichit la liste des factures après modification (delete)
+        await this.getItems()
+        console.log(response.data)
+        this.loading = false
+      } catch (error) {
+        console.error(error)
+        this.loading = false
+      }
     }
   }
 })
